@@ -3,4 +3,7 @@
 @import 'tailwindcss/utilities';
 
 
+* {
+    @apply font-sans;
+}
 

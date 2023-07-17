@@ -31,7 +31,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="mt-4 grow flex items-center justify-around">
+    <div className="mt-4 grow flex items-center justify-around text-primary">
       <div className="mb-40">
         <form
           className="px-10 py-8 shadow-lg shadow-gray-400 rounded-2xl"
@@ -54,7 +54,7 @@ export default function LoginPage() {
             className="block border px-4 py-2 w-full rounded-2xl mt-1"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="w-full py-2 bg-gray-800 text-white mt-5 rounded-2xl font-semibold">
+          <button className="w-full py-2 bg-primary text-white mt-5 rounded-2xl font-semibold">
             Login
           </button>
         </form>

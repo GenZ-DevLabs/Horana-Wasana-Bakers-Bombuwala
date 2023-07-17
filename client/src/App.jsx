@@ -6,6 +6,8 @@ import axios from "axios";
 import LoginPage from "./pages/LoginPage";
 import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
+import AddSlide from "./components/AddSlide";
+import AddDesignBoard from "./components/AddDesignBoard";
 
 axios.defaults.baseURL = "http://localhost:4001";
 axios.defaults.withCredentials = true;
@@ -18,6 +20,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/account" element={<ProfilePage />} />
+          <Route path="/account/slide" element={<AddSlide />} />
+          <Route path="/account/designs" element={<AddDesignBoard />} />
         </Route>
       </Routes>
     </UserContextProvider>
