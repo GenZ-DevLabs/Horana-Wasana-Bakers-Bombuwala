@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "../components/UserContext";
 import axios from "axios";
+import bcrypt from "bcryptjs";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -12,9 +13,10 @@ export default function LoginPage() {
   async function handleLoginSubmit(e) {
     e.preventDefault();
     try {
+      const hashedPassword = bcrypt.hashSync(password, 10);
       const { data } = await axios.post("/login", {
         email,
-        password,
+        password: hashedPassword,
       });
       setUser(data);
       setRedirect(true);
