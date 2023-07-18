@@ -105,12 +105,8 @@ app.post("/slides", (req, res) => {
 });
 
 app.get("/user-slides", async (req, res) => {
-  const { token } = req.cookies;
-  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-    if (err) throw err;
-    const { id } = userData;
-    res.json(await Slide.find({ owner: id }));
-  });
+  const slides = await Slide.find(); // Find slides
+  res.json(slides);
 });
 
 app.post("/designs", (req, res) => {
@@ -128,12 +124,8 @@ app.post("/designs", (req, res) => {
 });
 
 app.get("/user-designs", async (req, res) => {
-  const { token } = req.cookies;
-  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-    if (err) throw err;
-    const { id } = userData;
-    res.json(await DesignBoard.find({ owner: id }));
-  });
+  const designs = await DesignBoard.find(); // Find slides
+  res.json(designs);
 });
 
 app.listen(4001);

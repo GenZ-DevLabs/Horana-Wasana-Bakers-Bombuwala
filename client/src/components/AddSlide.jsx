@@ -64,25 +64,28 @@ export default function ADdSlide() {
           </button>
         </div>
       </form>
-
-      {slides.length > 0 &&
-        slides.map((slide) => (
-          <div
-            to={"/account/slide/" + slide._id}
-            key={slide}
-            className="flex cursor-pointer bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-2xl"
-          >
-            <div>
-              {slide.photos.length > 0 && (
-                <img
-                  className="object-cover overflow-hidden rounded-2xl"
-                  src={"http://localhost:4001/uploads/" + slide.photos[0]}
-                  alt="slide"
-                />
-              )}
-            </div>
-          </div>
-        ))}
+      <div className="flex ">
+        <div className="flex">
+          {slides.length > 0 &&
+            slides.map((slide) => (
+              <div
+                to={"/account/slide/" + slide._id}
+                key={slide}
+                className="flex cursor-pointer bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-2xl w-64 h-64 overflow-hidden"
+              >
+                <div>
+                  {slide.photos.length > 0 && (
+                    <img
+                      className="object-cover overflow-hidden rounded-2xl"
+                      src={"http://localhost:4001/uploads/" + slide.photos[0]}
+                      alt="slide"
+                    />
+                  )}
+                </div>
+              </div>
+            ))}
+        </div>
+      </div>
     </div>
   );
 }

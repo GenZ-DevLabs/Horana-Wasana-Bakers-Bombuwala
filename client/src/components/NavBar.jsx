@@ -10,14 +10,14 @@ export default function Header() {
       <header className="flex justify-between">
         <Link to={"/"} className="flex items-center gap-1">
           <img src={Logo} alt="logo" width="60px" className="" />
-          <span className="font-semibold text-3xl ml-2 hidden md:block">
+          <span className="font-semibold lg:text-2xl xl:text-3xl ml-2 hidden lg:block">
             Horana Wasana Bakers Bombuwala
           </span>
-          <span className="font-bold text-2xl ml-2 md:hidden">
+          <span className="font-bold text-2xl ml-2 lg:hidden">
             HWB Bombuwala
           </span>
         </Link>
-        <div className="flex items-center text-lg">
+        <div className="flex items-center md:text-md lg:text-lg">
           <Link className="mr-4 " to={"/"}>
             Home
           </Link>
