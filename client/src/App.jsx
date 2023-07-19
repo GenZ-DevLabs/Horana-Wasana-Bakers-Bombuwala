@@ -20,8 +20,8 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/account" element={<ProfilePage />} />
-          <Route path="/account/slide" element={<AddSlide />} />
-          <Route path="/account/designs" element={<AddDesignBoard />} />
+          <Route path="/slide" element={<AddSlide />} />
+          <Route path="/designs" element={<AddDesignBoard />} />
         </Route>
       </Routes>
     </UserContextProvider>

@@ -43,7 +43,7 @@ export default function HomeSlider() {
         {slides.length > 0 &&
           slides.map((slide) => (
             <Link
-              to={"/account/slide/" + slide._id}
+              to={"/slide/" + slide._id}
               key={slide}
               className="flex cursor-pointer bg-gray-100 rounded-2xl mt-3"
             >
