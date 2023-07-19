@@ -7,28 +7,38 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export default function HomeSlider() {
-  const settings = {
-    dots: true, // Show navigation dots
-    infinite: true, // Allow infinite scrolling
-    speed: 1000, // Transition speed in milliseconds
-    slidesToShow: 1, // Number of slides to show at once
-    slidesToScroll: 1, // Number of slides to scroll at once
-    autoplay: true, // Enable auto play
-    autoplaySpeed: 10000, // Auto play speed in milliseconds
-    loop: true, // Enable continuous loop mode
-    cssEase: "linear", // Transition style
-  };
-
   const [slides, setSlides] = useState([]);
+
   useEffect(() => {
     axios.get("/user-slides").then(({ data }) => {
       setSlides(data);
     });
   }, []);
 
+  const CustomPrevArrow = (props) => {
+    return <></>; // Return an empty fragment to disable the previous button
+  };
+
+  const CustomNextArrow = (props) => {
+    return <></>; // Return an empty fragment to disable the next button
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 10000,
+    loop: true,
+    cssEase: "linear",
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />
+  };
+
   return (
     <div className="relative z-10">
-      {/* this div should be link to a another bage show specail deals */}
       <Slider {...settings}>
         {slides.length > 0 &&
           slides.map((slide) => (
