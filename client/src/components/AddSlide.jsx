@@ -2,9 +2,11 @@ import PhotosUploader from "./PhotosUploader";
 import { useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import axios from "axios";
+import EditDeletePanel from "./EditDeletePanel";
 
-export default function ADdSlide() {
+export default function AddSlide() {
   const { id } = useParams();
+  const [slides, setSlides] = useState([]);
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [redirect, setRedirect] = useState(false);
 
@@ -12,13 +14,12 @@ export default function ADdSlide() {
     if (!id) {
       return;
     }
-    axios.get("/slides/" + id).then((response) => {
+    axios.get("/user-slides/" + id).then((response) => {
       const { data } = response;
       setAddedPhotos(data.photos);
     });
   }, [id]);
 
-  const [slides, setSlides] = useState([]);
   useEffect(() => {
     axios.get("/user-slides").then(({ data }) => {
       setSlides(data);
@@ -39,9 +40,7 @@ export default function ADdSlide() {
       });
       setRedirect(true);
     } else {
-      await axios.post("/slides", {
-        ...slideDetails,
-      });
+      await axios.post("/slides", slideDetails);
       setRedirect(true);
     }
   }
@@ -70,16 +69,12 @@ export default function ADdSlide() {
             slides.map((slide) => (
               <div
                 to={"/account/slide/" + slide._id}
-                key={slide}
-                className="flex cursor-pointer bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-md w-128 gap-2 overflow-hidden"
+                key={slide._id}
+                className="flex cursor-pointer relative bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-md w-128 gap-2 overflow-hidden"
               >
                 <div>
                   {slide.photos.length > 0 && (
-                    <img
-                      className="object-cover overflow-hidden rounded-md"
-                      src={"http://localhost:4001/uploads/" + slide.photos[0]}
-                      alt="slide"
-                    />
+                    <EditDeletePanel name={"slide"}>{slide}</EditDeletePanel>
                   )}
                 </div>
               </div>

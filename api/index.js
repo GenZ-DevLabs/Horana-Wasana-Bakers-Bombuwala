@@ -110,7 +110,12 @@ app.get("/user-slides", async (req, res) => {
   res.json(slides);
 });
 
-app.post("/Boards", (req, res) => {
+app.get("/user-slides/:id", async (req, res) => {
+  const {id} = req.params;
+  res.json(await Slide.findById(id));
+});
+
+app.post("/boards", (req, res) => {
   const { token } = req.cookies;
   const { title, addedPhotos } = req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
@@ -124,9 +129,30 @@ app.post("/Boards", (req, res) => {
   });
 });
 
+app.put("/boards", async (req, res) => {
+  const { token } = req.cookies;
+  const { id, title, addedPhotos } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    const boardDoc = await DesignBoard.findById(id);
+        if (userData.id === boardDoc.owner.toString()){
+          boardDoc.set({
+            title: title,
+            photos: addedPhotos,
+            })
+            await boardDoc.save();
+            res.json('ok');
+        }
+  });
+});
+
 app.get("/user-boards", async (req, res) => {
-  const designs = await DesignBoard.find(); // Find slides
+  const designs = await DesignBoard.find(); // Find user boards
   res.json(designs);
+});
+
+app.get("/user-boards/:id", async (req, res) => {
+  const {id} = req.params;
+  res.json(await DesignBoard.findById(id));
 });
 
 app.post("/designs", (req, res) => {
@@ -147,8 +173,14 @@ app.post("/designs", (req, res) => {
 });
 
 app.get("/user-designs", async (req, res) => {
-  const designs = await Design.find(); // Find slides
+  const designs = await Design.find(); // Find user designs
   res.json(designs);
 });
+
+app.get("/user-designs/:id", async (req, res) => {
+  const {id} = req.params;
+  res.json(await Design.findById(id));
+});
+
 
 app.listen(4001);

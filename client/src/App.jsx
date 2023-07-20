@@ -8,6 +8,7 @@ import ProfilePage from "./pages/ProfilePage";
 import HomePage from "./pages/HomePage";
 import AddSlide from "./components/AddSlide";
 import AddDesignBoard from "./components/AddDesignBoard";
+import AddDesign from "./components/AddDesign";
 import DesignBoard from "./components/DesignBoard";
 
 axios.defaults.baseURL = "http://localhost:4001";
@@ -23,6 +24,9 @@ function App() {
           <Route path="/account" element={<ProfilePage />} />
           <Route path="/slide" element={<AddSlide />} />
           <Route path="/designs" element={<AddDesignBoard />} />
+          <Route path="/account/board/:id" element={<AddDesignBoard />} />
+          <Route path="/account/design/:id" element={<AddDesign />} />
+          <Route path="/account/slide/:id" element={<AddSlide />} />
           <Route path="/:id" element={<DesignBoard />} />
         </Route>
       </Routes>
