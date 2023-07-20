@@ -15,11 +15,11 @@ export default function HomeSlider() {
     });
   }, []);
 
-  const CustomPrevArrow = (props) => {
+  const CustomPrevArrow = () => {
     return <></>; // Return an empty fragment to disable the previous button
   };
 
-  const CustomNextArrow = (props) => {
+  const CustomNextArrow = () => {
     return <></>; // Return an empty fragment to disable the next button
   };
 
@@ -34,7 +34,7 @@ export default function HomeSlider() {
     loop: true,
     cssEase: "linear",
     prevArrow: <CustomPrevArrow />,
-    nextArrow: <CustomNextArrow />
+    nextArrow: <CustomNextArrow />,
   };
 
   return (

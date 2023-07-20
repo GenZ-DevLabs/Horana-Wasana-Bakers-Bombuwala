@@ -22,7 +22,13 @@ export default function ProfileSideBar({ setSubpage }) {
         className="text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("DesignBoards")}
       >
-        Designs
+        Design Board
+      </h1>
+      <h1
+        className="text-2xl font-semibold mb-3 cursor-pointer"
+        onClick={() => setSubpage("AddDesign")}
+      >
+        Add Design
       </h1>
       <h1
         className="text-2xl font-semibold mb-3 cursor-pointer"

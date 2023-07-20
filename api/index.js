@@ -128,4 +128,9 @@ app.get("/user-designs", async (req, res) => {
   res.json(designs);
 });
 
+app.get("/design-board-names", async (req, res) => {
+  const designBoardNames = await DesignBoard.find();
+  res.json(designBoardNames);
+});
+
 app.listen(4001);

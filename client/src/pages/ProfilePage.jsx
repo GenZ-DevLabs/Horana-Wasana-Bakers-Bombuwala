@@ -6,6 +6,7 @@ import axios from "axios";
 import AddSlide from "../components/AddSlide";
 import ProfileSideBar from "../components/ProfileSideBar";
 import AddDesignBoard from "../components/AddDesignBoard";
+import AddDesign from "../components/AddDesign";
 
 export default function ProfilePage() {
   const { user, setUser } = useContext(UserContext);
@@ -50,6 +51,7 @@ export default function ProfilePage() {
         )}
         {subpage === "SpecialAds" && <AddSlide />}
         {subpage === "DesignBoards" && <AddDesignBoard />}
+        {subpage === "AddDesign" && <AddDesign />}
       </div>
     </div>
   );

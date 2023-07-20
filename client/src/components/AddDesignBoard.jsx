@@ -66,7 +66,7 @@ export default function AddDesignBoard() {
         <input
           type="text"
           placeholder="Title"
-          className="border w-full px-2 py-2 rounded-2xl mb-4"
+          className="border w-full px-2 py-2 rounded-md mb-4"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -75,16 +75,15 @@ export default function AddDesignBoard() {
         <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
 
         <div>
-          <button className="w-full py-2 bg-primary text-white mt-5 rounded-2xl font-semibold">
+          <button className="w-full py-2 bg-primary text-white mt-5 rounded-md font-semibold">
             Save
           </button>
         </div>
       </form>
-      <div className="w-48 mb-5">
+      <div className="grid w-full justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
         {designs.length > 0 &&
           designs.map((design) => (
             <div
-              to={"/account/design/" + design._id}
               key={design}
               className="flex cursor-pointer bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-2xl"
             >

@@ -12,7 +12,7 @@ export default function DesignBoardCard() {
   }, []);
 
   return (
-    <div className=" grid w-full justify-center items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+    <div className="grid w-full justify-center items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {designs.length > 0 &&
         designs.map((design) => (
           <Link

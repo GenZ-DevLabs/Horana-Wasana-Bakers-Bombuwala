@@ -57,11 +57,11 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
           value={photoLink}
           onChange={(e) => setPhotoLink(e.target.value)}
           placeholder={"Add using a link ....jpg"}
-          className="border w-full px-2 py-2 rounded-2xl"
+          className="border w-full px-2 py-2 rounded-md"
         />
         <button
           onClick={addPhotoByLink}
-          className="bg-primary text-white grow px-4 rounded-2xl font-semibold"
+          className="bg-primary text-white grow px-4 rounded-md font-semibold"
         >
           Add&nbsp;Photo
         </button>
@@ -71,13 +71,13 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
           addedPhotos.map((link) => (
             <div key={link} className="h-28 flex relative">
               <img
-                className="rounded-2xl w-full object-cover"
+                className="rounded-md w-full object-cover"
                 src={"http://localhost:4001/uploads/" + link}
                 alt="place"
               />
               <button
                 onClick={(e) => removePhoto(e, link)}
-                className="absolute bottom-2 right-2 text-white bg-black bg-opacity-50 rounded-2xl px-2 py-1"
+                className="absolute bottom-2 right-2 text-white bg-black bg-opacity-50 rounded-md px-2 py-1"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
               </button>
               <button
                 onClick={(e) => selectMainPhoto(e, link)}
-                className="absolute bottom-2 left-2 text-white bg-black bg-opacity-50 rounded-2xl px-2 py-1"
+                className="absolute bottom-2 left-2 text-white bg-black bg-opacity-50 rounded-md px-2 py-1"
               >
                 {link === addedPhotos[0] && (
                   <svg

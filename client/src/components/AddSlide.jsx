@@ -55,11 +55,11 @@ export default function ADdSlide() {
       <h1 className="text-center text-2xl font-semibold mb-5">Add Slide</h1>
       <form
         onSubmit={saveSlide}
-        className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-2xl"
+        className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-md"
       >
         <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
         <div>
-          <button className="w-full py-2 bg-primary text-white mt-5 rounded-2xl font-semibold">
+          <button className="w-full py-2 bg-primary text-white mt-5 rounded-md font-semibold">
             Save
           </button>
         </div>
@@ -71,12 +71,12 @@ export default function ADdSlide() {
               <div
                 to={"/account/slide/" + slide._id}
                 key={slide}
-                className="flex cursor-pointer bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-2xl w-64 h-64 overflow-hidden"
+                className="flex cursor-pointer bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-md w-128 gap-2 overflow-hidden"
               >
                 <div>
                   {slide.photos.length > 0 && (
                     <img
-                      className="object-cover overflow-hidden rounded-2xl"
+                      className="object-cover overflow-hidden rounded-md"
                       src={"http://localhost:4001/uploads/" + slide.photos[0]}
                       alt="slide"
                     />
