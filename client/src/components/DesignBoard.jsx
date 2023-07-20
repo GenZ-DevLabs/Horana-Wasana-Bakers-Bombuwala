@@ -24,7 +24,16 @@ export default function DesignBoard() {
                 currentPath.includes(
                   design.board.replace(/\s+/g, "").toLowerCase()
                 ) && (
-                  <Link className="flex flex-col mx-5 my-5 rounded-2xl mt-3 w-64 shadow-lg shadow-gray-500">
+                  <Link
+                    key={design._id}
+                    className="flex flex-col mx-5 my-5 rounded-2xl mt-3 w-64 shadow-lg shadow-gray-500"
+                    to={
+                      "/" +
+                      design.board.replace(/\s+/g, "").toLowerCase() +
+                      "/" +
+                      design._id
+                    }
+                  >
                     <img
                       className="flex w-64 h-64 items-center justify-around  object-cover overflow-hidden rounded-t-2xl"
                       src={"http://localhost:4001/uploads/" + design.photos[0]}
