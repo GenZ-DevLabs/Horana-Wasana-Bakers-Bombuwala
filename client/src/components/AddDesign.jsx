@@ -9,6 +9,7 @@ export default function AddDesignBoard() {
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [redirect, setRedirect] = useState(false);
   const [designNumber, setDesignNumber] = useState(1);
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
     if (!id) {
@@ -22,18 +23,21 @@ export default function AddDesignBoard() {
   }, [id]);
 
   const [designs, setDesigns] = useState([]);
-  const [heading, setHeading] = useState([]);
+  const [board, setBoard] = useState([]);
   useEffect(() => {
     axios.get("/user-designs").then(({ data }) => {
       setDesigns(data);
     });
   }, []);
 
-  async function savePlace(e) {
+  async function saveDesign(e) {
     e.preventDefault();
 
     const placeDetails = {
+      board,
+      designNumber,
       title,
+      description,
       addedPhotos,
     };
 
@@ -59,7 +63,7 @@ export default function AddDesignBoard() {
     <div className="mt-10">
       <h1 className="text-2xl text-center font-semibold mb-8">Add Design</h1>
       <form
-        onSubmit={savePlace}
+        onSubmit={saveDesign}
         className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-md"
       >
         <div className="p-4">
@@ -68,14 +72,11 @@ export default function AddDesignBoard() {
             id="dropdown"
             name="dropdown"
             className="block w-full p-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
+            onChange={(e) => setBoard(e.target.value)}
           >
             {designs.length > 0 &&
               designs.map((design) => (
-                <option
-                  key={design}
-                  value={heading}
-                  onChange={(e) => setHeading(e.target.value)}
-                >
+                <option key={design.title} value={design.title}>
                   {design.title}
                 </option>
               ))}
@@ -107,7 +108,8 @@ export default function AddDesignBoard() {
             placeholder="Description about design"
             rows="5"
             className="pl-2 pt-2 w-full border rounded-md"
-          ></textarea>
+            onChange={(e) => setDescription(e.target.value)}
+          />
         </div>
         <div className="p-4">
           <h1 className="mb-2 text-lg font-semibold">Photos</h1>

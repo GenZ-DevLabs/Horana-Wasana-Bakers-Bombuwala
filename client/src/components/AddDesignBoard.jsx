@@ -27,7 +27,7 @@ export default function AddDesignBoard() {
     });
   }, []);
 
-  async function savePlace(e) {
+  async function saveDesignBoard(e) {
     e.preventDefault();
 
     const placeDetails = {
@@ -36,13 +36,13 @@ export default function AddDesignBoard() {
     };
 
     if (id) {
-      await axios.put("/designs", {
+      await axios.put("/boards", {
         id,
         ...placeDetails,
       });
       setRedirect(true);
     } else {
-      await axios.post("/designs", {
+      await axios.post("/boards", {
         ...placeDetails,
       });
       setRedirect(true);
@@ -59,7 +59,7 @@ export default function AddDesignBoard() {
         Add Design Board
       </h1>
       <form
-        onSubmit={savePlace}
+        onSubmit={saveDesignBoard}
         className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-2xl"
       >
         <h1 className="mb-2 text-lg font-semibold">Title</h1>

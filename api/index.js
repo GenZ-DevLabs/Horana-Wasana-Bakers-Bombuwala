@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const User = require("./models/User");
 const Slide = require("./models/Slide");
 const DesignBoard = require("./models/DesignBoard");
+const Design = require("./models/Design");
 const cookieParser = require("cookie-parser");
 const imageDownloader = require("image-downloader");
 const multer = require("multer");
@@ -109,7 +110,7 @@ app.get("/user-slides", async (req, res) => {
   res.json(slides);
 });
 
-app.post("/designs", (req, res) => {
+app.post("/Boards", (req, res) => {
   const { token } = req.cookies;
   const { title, addedPhotos } = req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
@@ -128,9 +129,21 @@ app.get("/user-designs", async (req, res) => {
   res.json(designs);
 });
 
-app.get("/design-board-names", async (req, res) => {
-  const designBoardNames = await DesignBoard.find();
-  res.json(designBoardNames);
+app.post("/designs", (req, res) => {
+  const { token } = req.cookies;
+  const { board, designNumber, title, description, addedPhotos } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    if (err) throw err;
+    const designBoard = await Design.create({
+      owner: userData.id,
+      board: board,
+      designNumber: designNumber,
+      title: title,
+      description: description,
+      photos: addedPhotos,
+    });
+    res.json(designBoard);
+  });
 });
 
 app.listen(4001);

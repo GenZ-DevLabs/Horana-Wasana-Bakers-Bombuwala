@@ -7,6 +7,6 @@ const DesignBoardSchema = new Schema({
   photos: [String],
 });
 
-const SlideModel = mongoose.model("DesingBoard", DesignBoardSchema);
+const DesignBoardModel = mongoose.model("DesingBoard", DesignBoardSchema);
 
-module.exports = SlideModel;
+module.exports = DesignBoardModel;

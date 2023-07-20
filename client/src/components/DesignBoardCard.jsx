@@ -16,7 +16,7 @@ export default function DesignBoardCard() {
       {designs.length > 0 &&
         designs.map((design) => (
           <Link
-            to={"/design/" + design._id}
+            to={"/" + design.title}
             key={design}
             className="flex cursor-pointer mx-5 my-5 rounded-2xl mt-3 w-64 shadow-lg shadow-gray-700"
           >
