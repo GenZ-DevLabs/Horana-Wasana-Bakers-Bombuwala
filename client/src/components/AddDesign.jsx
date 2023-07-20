@@ -22,8 +22,15 @@ export default function AddDesignBoard() {
     });
   }, [id]);
 
+  const [designBoards, setDesignBoards] = useState([]);
+  const [board, setBoard] = useState("");
+  useEffect(() => {
+    axios.get("/user-boards").then(({ data }) => {
+      setDesignBoards(data);
+    });
+  }, []);
+
   const [designs, setDesigns] = useState([]);
-  const [board, setBoard] = useState([]);
   useEffect(() => {
     axios.get("/user-designs").then(({ data }) => {
       setDesigns(data);
@@ -71,13 +78,17 @@ export default function AddDesignBoard() {
           <select
             id="dropdown"
             name="dropdown"
+            value={board}
             className="block w-full p-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
             onChange={(e) => setBoard(e.target.value)}
           >
-            {designs.length > 0 &&
-              designs.map((design) => (
-                <option key={design.title} value={design.title}>
-                  {design.title}
+            <option value="" disabled>
+              Choose an option
+            </option>
+            {designBoards.length > 0 &&
+              designBoards.map((designBoard) => (
+                <option key={designBoard.title} value={designBoard.title}>
+                  {designBoard.title}
                 </option>
               ))}
           </select>

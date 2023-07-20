@@ -124,7 +124,7 @@ app.post("/Boards", (req, res) => {
   });
 });
 
-app.get("/user-designs", async (req, res) => {
+app.get("/user-boards", async (req, res) => {
   const designs = await DesignBoard.find(); // Find slides
   res.json(designs);
 });
@@ -144,6 +144,11 @@ app.post("/designs", (req, res) => {
     });
     res.json(designBoard);
   });
+});
+
+app.get("/user-designs", async (req, res) => {
+  const designs = await Design.find(); // Find slides
+  res.json(designs);
 });
 
 app.listen(4001);

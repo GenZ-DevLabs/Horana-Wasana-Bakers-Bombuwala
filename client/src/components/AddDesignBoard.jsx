@@ -20,10 +20,10 @@ export default function AddDesignBoard() {
     });
   }, [id]);
 
-  const [designs, setDesigns] = useState([]);
+  const [boards, setBoards] = useState([]);
   useEffect(() => {
-    axios.get("/user-designs").then(({ data }) => {
-      setDesigns(data);
+    axios.get("/user-boards").then(({ data }) => {
+      setBoards(data);
     });
   }, []);
 
@@ -81,8 +81,8 @@ export default function AddDesignBoard() {
         </div>
       </form>
       <div className="grid w-full justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
-        {designs.length > 0 &&
-          designs.map((design) => (
+        {boards.length > 0 &&
+          boards.map((design) => (
             <div
               key={design}
               className="flex cursor-pointer bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-2xl"
