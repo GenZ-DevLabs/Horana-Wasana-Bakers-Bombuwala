@@ -21,7 +21,7 @@ export default function Header() {
           <Link className="mr-4 " to={"/"}>
             Home
           </Link>
-          <Link className="mr-4">About</Link>
+          <Link to={"/About"} className="mr-4">About</Link>
           <Link className="mr-8">Contact Us</Link>
           <Link
             to={user ? "/account" : "/login"}
