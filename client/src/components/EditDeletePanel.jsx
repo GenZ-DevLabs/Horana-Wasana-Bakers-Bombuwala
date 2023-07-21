@@ -1,7 +1,22 @@
+import axios from "axios";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 export default function EditDeletePanel({ name, children }) {
+  async function deleteRecord() {
+    const confirmDelete = window.confirm(
+      `Are you sure you want to delete this ${name}?`
+    );
+    if (confirmDelete) {
+      try {
+        await axios.delete(`/${name}s/${children._id}`);
+        alert("Record deleted successfully");
+      } catch (error) {
+        console.error("Error deleting record:", error);
+      }
+    }
+  }
+
   return (
     <div>
       {/* image */}
@@ -32,7 +47,10 @@ export default function EditDeletePanel({ name, children }) {
       </Link>
 
       {/* delete */}
-      <button className="cursor-pointer absolute bottom-1 right-1 text-white bg-black p-2 bg-opacity-50 rounded-2xl">
+      <button
+        onClick={deleteRecord}
+        className="cursor-pointer absolute bottom-1 right-1 text-white bg-black p-2 bg-opacity-50 rounded-2xl"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

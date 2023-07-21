@@ -24,10 +24,15 @@ function App() {
           <Route path="/account" element={<ProfilePage />} />
           <Route path="/slide" element={<AddSlide />} />
           <Route path="/designs" element={<AddDesignBoard />} />
+          <Route path="/:id" element={<DesignBoard />} />
+
+          {/* to load profile sidebar and each board, design and slide*/}
+          <Route path="/account/board/:id" element={<ProfilePage />} />
+          <Route path="/account/design/:id" element={<ProfilePage />} />
+          <Route path="/account/slide/:id" element={<ProfilePage />} />
           <Route path="/account/board/:id" element={<AddDesignBoard />} />
           <Route path="/account/design/:id" element={<AddDesign />} />
           <Route path="/account/slide/:id" element={<AddSlide />} />
-          <Route path="/:id" element={<DesignBoard />} />
         </Route>
       </Routes>
     </UserContextProvider>

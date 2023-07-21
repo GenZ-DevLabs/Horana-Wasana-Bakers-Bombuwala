@@ -23,9 +23,9 @@ export default function AddDesignBoard() {
     axios.get("/user-designs/" + id).then((response) => {
       const { data } = response;
       setBoard(data.board);
+      setDescription(data.description);
       setDesignNumber(data.designNumber);
       setTitle(data.title);
-      setDescription(data.description);
       setAddedPhotos(data.photos);
     });
   }, [id]);
@@ -123,6 +123,7 @@ export default function AddDesignBoard() {
             placeholder="Description about design"
             rows="5"
             className="pl-2 pt-2 w-full border rounded-md"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
