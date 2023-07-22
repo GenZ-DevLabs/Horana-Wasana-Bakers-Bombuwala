@@ -131,7 +131,7 @@ export default function DesignGallery() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex p-3 justify-start pb-10 md:-ml-40 lg:ml-0 lg:pt-28">
+                  <div className="flex p-3 justify-center lg:justify-start pb-10 md:-ml-40 lg:ml-0 lg:pt-28">
                     <div className="lg:p-10">
                       <div className="flex-col items-center justify-center h-80 w-full bg-gray-100 shadow-md shadow-gray-400 rounded-2xl">
                         <div className="p-3 ">
