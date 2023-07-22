@@ -1,8 +1,8 @@
 import React from 'react';
 import ContactUsForm from '../components/ContactUsForm';
+import backgroundImageUrl from '../assets/contact_us_background.jpg';
 
 const ContactUsPage = () => {
-    const backgroundImageUrl = 'https://img.freepik.com/free-photo/mini-homemade-strawberry-shortcake-pastry-beige-background_53876-103591.jpg?w=2000';
   
     return (
       <div
