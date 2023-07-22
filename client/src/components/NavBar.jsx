@@ -22,7 +22,7 @@ export default function Header() {
             Home
           </Link>
           <Link className="mr-4">About</Link>
-          <Link className="mr-8">Contact Us</Link>
+          <Link className="mr-8" to={"/contactus"}>Contact Us</Link>
           <Link
             to={user ? "/account" : "/login"}
             className="flex items-center gap-2 rounded-full"

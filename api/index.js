@@ -93,6 +93,8 @@ app.post("/upload", photosMiddleware.array("photos", 100), (req, res) => {
   res.json(uploadedFiles);
 });
 
+
+// add new slide
 app.post("/slides", (req, res) => {
   const { token } = req.cookies;
   const { addedPhotos } = req.body;
@@ -106,12 +108,48 @@ app.post("/slides", (req, res) => {
   });
 });
 
+// update a slide
+app.put("/slides", async (req, res) => {
+  const { token } = req.cookies;
+  const { id, addedPhotos } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    const slideDoc = await Slide.findById(id);
+        if (userData.id === slideDoc.owner.toString()){
+          slideDoc.set({
+            photos: addedPhotos,
+            })
+            await slideDoc.save();
+            res.json('ok');
+        }
+  });
+});
+
+// get all slides
 app.get("/user-slides", async (req, res) => {
-  const slides = await Slide.find(); // Find slides
+  const slides = await Slide.find();
   res.json(slides);
 });
 
-app.post("/Boards", (req, res) => {
+// get slide by id
+app.get("/user-slides/:id", async (req, res) => {
+  const {id} = req.params;
+  res.json(await Slide.findById(id));
+});
+
+// delete slide by id
+app.delete("/slides/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Slide.deleteOne({ _id: id });
+    res.json({ success: true, message: "Slide deleted successfully!" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error deleting slide.", error });
+  }
+});
+
+
+// add new board
+app.post("/boards", (req, res) => {
   const { token } = req.cookies;
   const { title, addedPhotos } = req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
@@ -125,11 +163,48 @@ app.post("/Boards", (req, res) => {
   });
 });
 
+// update a board
+app.put("/boards", async (req, res) => {
+  const { token } = req.cookies;
+  const { id, title, addedPhotos } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    const boardDoc = await DesignBoard.findById(id);
+        if (userData.id === boardDoc.owner.toString()){
+          boardDoc.set({
+            title: title,
+            photos: addedPhotos,
+            })
+            await boardDoc.save();
+            res.json('ok');
+        }
+  });
+});
+
+// get all boards
 app.get("/user-boards", async (req, res) => {
-  const designs = await DesignBoard.find(); // Find slides
+  const designs = await DesignBoard.find(); // Find user boards
   res.json(designs);
 });
 
+// get board by id
+app.get("/user-boards/:id", async (req, res) => {
+  const {id} = req.params;
+  res.json(await DesignBoard.findById(id));
+});
+
+// delete board by id
+app.delete("/boards/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await DesignBoard.deleteOne({ _id: id });
+    res.json({ success: true, message: "Board deleted successfully!" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error deleting board.", error });
+  }
+});
+
+
+// add new design
 app.post("/designs", (req, res) => {
   const { token } = req.cookies;
   const { board, designNumber, title, description, addedPhotos } = req.body;
@@ -147,9 +222,47 @@ app.post("/designs", (req, res) => {
   });
 });
 
+// update a design
+app.put("/designs", async (req, res) => {
+  const { token } = req.cookies;
+  const { id, board, designNumber, title, description, addedPhotos } = req.body;
+  jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+    const designDoc = await Design.findById(id);
+        if (userData.id === designDoc.owner.toString()){
+          designDoc.set({
+            owner: userData.id,
+            board: board,
+            designNumber: designNumber,
+            title: title,
+            description: description,
+            photos: addedPhotos,})
+            await designDoc.save();
+            res.json('ok');
+        }
+  });
+});
+
+// get all designs
 app.get("/user-designs", async (req, res) => {
-  const designs = await Design.find(); // Find slides
+  const designs = await Design.find(); // Find user designs
   res.json(designs);
+});
+
+// get design by id
+app.get("/user-designs/:id", async (req, res) => {
+  const {id} = req.params;
+  res.json(await Design.findById(id));
+});
+
+// delete design by id
+app.delete("/designs/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Design.deleteOne({ _id: id });
+    res.json({ success: true, message: "Design deleted successfully!" });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error deleting Design.", error });
+  }
 });
 
 app.listen(4001);
