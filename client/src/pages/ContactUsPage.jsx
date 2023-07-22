@@ -22,13 +22,5 @@ const ContactUsPage = () => {
       </div>
     );
   };
-//     <div className="min-h-screen flex items-center justify-center bg-white">
-//       <div className="bg-gray-200 p-6 rounded shadow-xl max-w-md w-full">
-//         <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
-//         <ContactUsForm />
-//       </div>
-//     </div>
-//   );
-// };
 
 export default ContactUsPage;
