@@ -9,6 +9,7 @@ import HomePage from "./pages/HomePage";
 import AddSlide from "./components/AddSlide";
 import AddDesignBoard from "./components/AddDesignBoard";
 import DesignBoard from "./components/DesignBoard";
+import DesignGallery from "./components/DesignGallery";
 
 axios.defaults.baseURL = "http://localhost:4001";
 axios.defaults.withCredentials = true;
@@ -24,6 +25,7 @@ function App() {
           <Route path="/slide" element={<AddSlide />} />
           <Route path="/designs" element={<AddDesignBoard />} />
           <Route path="/:id" element={<DesignBoard />} />
+          <Route path="/:id/:designId" element={<DesignGallery />} />
         </Route>
       </Routes>
     </UserContextProvider>
