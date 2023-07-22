@@ -25,7 +25,6 @@ const ContactUsForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // You need to set up your own EmailJS account and template for this to work
     const serviceId = "service_gsdm27f";
     const templateId = "template_3pmflrk";
     const userId = "rcyAo91xkCVPVf7Iw";
@@ -43,14 +42,12 @@ const ContactUsForm = () => {
         console.log('Email sent successfully!', response);
         setSuccessMessage('Successfully sent the message!');
         setErrorMessage('');
-        setFormData(initialFormData); // Clear the form after successful submission
-        // window.alert('Email sent successfully!'); // Display popup success message
+        setFormData(initialFormData);
       })
       .catch((error) => {
         console.error('Error sending email:', error);
         setErrorMessage('Error sending the message. Please try again later.');
         setSuccessMessage('');
-        // window.alert('Error sending the message. Please try again later.'); // Display popup error message
       });
   };
 

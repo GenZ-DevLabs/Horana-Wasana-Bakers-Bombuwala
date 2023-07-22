@@ -12,7 +12,7 @@ const ContactUsPage = () => {
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
           backgroundPosition: 'center',
-          backgroundColor: 'rgba(255, 255, 255, 0.8)', // Set the desired background color with opacity
+          backgroundColor: 'rgba(255, 255, 255, 0.8)', 
         }}
       >
         <div className="bg-w border-2 border-gray-300 p-5 rounded-2xl shadow-2xl max-w-xl w-full " style={{ marginLeft: '30.5%' }}>
