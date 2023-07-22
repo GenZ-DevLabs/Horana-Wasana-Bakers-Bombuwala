@@ -3,7 +3,7 @@ import WhatsAppLogo from "../assets/whatsapp.png";
 
 export default function WhatsappWidget() {
   return (
-    <div className="fixed bottom-0 right-0 pb-10 pr-10">
+    <div className="fixed bottom-0 right-0 pb-10 pr-10 z-30">
       <Link
         to="https://wa.me/94715514646"
         target="_blank"
