@@ -2,25 +2,26 @@ import PhotosUploader from "../components/PhotosUploader";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
+import EditDeletePanel from "./EditDeletePanel";
 
 export default function AddDesignBoard() {
   const { id } = useParams();
   const [title, setTitle] = useState("");
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [redirect, setRedirect] = useState(false);
+  const [boards, setBoards] = useState([]);
 
   useEffect(() => {
     if (!id) {
       return;
     }
-    axios.get("/designs/" + id).then((response) => {
+    axios.get("/user-boards/" + id).then((response) => {
       const { data } = response;
       setTitle(data.title);
       setAddedPhotos(data.photos);
     });
   }, [id]);
 
-  const [boards, setBoards] = useState([]);
   useEffect(() => {
     axios.get("/user-boards").then(({ data }) => {
       setBoards(data);
@@ -30,7 +31,7 @@ export default function AddDesignBoard() {
   async function saveDesignBoard(e) {
     e.preventDefault();
 
-    const placeDetails = {
+    const boardData = {
       title,
       addedPhotos,
     };
@@ -38,13 +39,11 @@ export default function AddDesignBoard() {
     if (id) {
       await axios.put("/boards", {
         id,
-        ...placeDetails,
+        ...boardData,
       });
       setRedirect(true);
     } else {
-      await axios.post("/boards", {
-        ...placeDetails,
-      });
+      await axios.post("/boards", boardData);
       setRedirect(true);
     }
   }
@@ -82,18 +81,14 @@ export default function AddDesignBoard() {
       </form>
       <div className="grid w-full justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
         {boards.length > 0 &&
-          boards.map((design) => (
+          boards.map((board) => (
             <div
-              key={design}
-              className="flex cursor-pointer bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-2xl"
+              key={board._id}
+              className="flex bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-2xl relative"
             >
               <div>
-                {design.photos.length > 0 && (
-                  <img
-                    className="object-cover overflow-hidden rounded-2xl"
-                    src={"http://localhost:4001/uploads/" + design.photos[0]}
-                    alt="slide"
-                  />
+                {board.photos.length > 0 && (
+                  <EditDeletePanel name={"board"}>{board}</EditDeletePanel>
                 )}
               </div>
             </div>
