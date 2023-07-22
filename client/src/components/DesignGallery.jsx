@@ -38,7 +38,7 @@ export default function DesignGallery() {
     if (selectedDesign) {
       setBoard(selectedDesign.board);
       setTitle(selectedDesign.title);
-      setPrice(1800);
+      setPrice(selectedDesign.price);
     }
   };
 
@@ -91,6 +91,14 @@ export default function DesignGallery() {
                               }
                               alt=""
                             />
+                          ) : design.photos[0] ? (
+                            <img
+                              src={
+                                "http://localhost:4001/uploads/" +
+                                design.photos[0]
+                              }
+                              alt=""
+                            />
                           ) : (
                             <div>
                               <h1>No Photo.</h1>
@@ -106,8 +114,18 @@ export default function DesignGallery() {
                               }
                               alt=""
                             />
+                          ) : design.photos[0] ? (
+                            <img
+                              src={
+                                "http://localhost:4001/uploads/" +
+                                design.photos[0]
+                              }
+                              alt=""
+                            />
                           ) : (
-                            <h1>No Photo.</h1>
+                            <div>
+                              <h1>No Photo.</h1>
+                            </div>
                           )}
                         </div>
                       </div>

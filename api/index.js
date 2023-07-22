@@ -93,7 +93,6 @@ app.post("/upload", photosMiddleware.array("photos", 100), (req, res) => {
   res.json(uploadedFiles);
 });
 
-
 // add new slide
 app.post("/slides", (req, res) => {
   const { token } = req.cookies;
@@ -114,13 +113,13 @@ app.put("/slides", async (req, res) => {
   const { id, addedPhotos } = req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     const slideDoc = await Slide.findById(id);
-        if (userData.id === slideDoc.owner.toString()){
-          slideDoc.set({
-            photos: addedPhotos,
-            })
-            await slideDoc.save();
-            res.json('ok');
-        }
+    if (userData.id === slideDoc.owner.toString()) {
+      slideDoc.set({
+        photos: addedPhotos,
+      });
+      await slideDoc.save();
+      res.json("ok");
+    }
   });
 });
 
@@ -132,7 +131,7 @@ app.get("/user-slides", async (req, res) => {
 
 // get slide by id
 app.get("/user-slides/:id", async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   res.json(await Slide.findById(id));
 });
 
@@ -143,10 +142,11 @@ app.delete("/slides/:id", async (req, res) => {
     await Slide.deleteOne({ _id: id });
     res.json({ success: true, message: "Slide deleted successfully!" });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Error deleting slide.", error });
+    res
+      .status(500)
+      .json({ success: false, message: "Error deleting slide.", error });
   }
 });
-
 
 // add new board
 app.post("/boards", (req, res) => {
@@ -169,14 +169,14 @@ app.put("/boards", async (req, res) => {
   const { id, title, addedPhotos } = req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     const boardDoc = await DesignBoard.findById(id);
-        if (userData.id === boardDoc.owner.toString()){
-          boardDoc.set({
-            title: title,
-            photos: addedPhotos,
-            })
-            await boardDoc.save();
-            res.json('ok');
-        }
+    if (userData.id === boardDoc.owner.toString()) {
+      boardDoc.set({
+        title: title,
+        photos: addedPhotos,
+      });
+      await boardDoc.save();
+      res.json("ok");
+    }
   });
 });
 
@@ -188,7 +188,7 @@ app.get("/user-boards", async (req, res) => {
 
 // get board by id
 app.get("/user-boards/:id", async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   res.json(await DesignBoard.findById(id));
 });
 
@@ -199,15 +199,17 @@ app.delete("/boards/:id", async (req, res) => {
     await DesignBoard.deleteOne({ _id: id });
     res.json({ success: true, message: "Board deleted successfully!" });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Error deleting board.", error });
+    res
+      .status(500)
+      .json({ success: false, message: "Error deleting board.", error });
   }
 });
-
 
 // add new design
 app.post("/designs", (req, res) => {
   const { token } = req.cookies;
-  const { board, designNumber, title, description, addedPhotos } = req.body;
+  const { board, designNumber, title, description, price, addedPhotos } =
+    req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     if (err) throw err;
     const designBoard = await Design.create({
@@ -216,6 +218,7 @@ app.post("/designs", (req, res) => {
       designNumber: designNumber,
       title: title,
       description: description,
+      price: price,
       photos: addedPhotos,
     });
     res.json(designBoard);
@@ -225,20 +228,23 @@ app.post("/designs", (req, res) => {
 // update a design
 app.put("/designs", async (req, res) => {
   const { token } = req.cookies;
-  const { id, board, designNumber, title, description, addedPhotos } = req.body;
+  const { id, board, designNumber, title, description, price, addedPhotos } =
+    req.body;
   jwt.verify(token, jwtSecret, {}, async (err, userData) => {
     const designDoc = await Design.findById(id);
-        if (userData.id === designDoc.owner.toString()){
-          designDoc.set({
-            owner: userData.id,
-            board: board,
-            designNumber: designNumber,
-            title: title,
-            description: description,
-            photos: addedPhotos,})
-            await designDoc.save();
-            res.json('ok');
-        }
+    if (userData.id === designDoc.owner.toString()) {
+      designDoc.set({
+        owner: userData.id,
+        board: board,
+        designNumber: designNumber,
+        title: title,
+        description: description,
+        price: price,
+        photos: addedPhotos,
+      });
+      await designDoc.save();
+      res.json("ok");
+    }
   });
 });
 
@@ -250,7 +256,7 @@ app.get("/user-designs", async (req, res) => {
 
 // get design by id
 app.get("/user-designs/:id", async (req, res) => {
-  const {id} = req.params;
+  const { id } = req.params;
   res.json(await Design.findById(id));
 });
 
@@ -261,7 +267,9 @@ app.delete("/designs/:id", async (req, res) => {
     await Design.deleteOne({ _id: id });
     res.json({ success: true, message: "Design deleted successfully!" });
   } catch (error) {
-    res.status(500).json({ success: false, message: "Error deleting Design.", error });
+    res
+      .status(500)
+      .json({ success: false, message: "Error deleting Design.", error });
   }
 });
 

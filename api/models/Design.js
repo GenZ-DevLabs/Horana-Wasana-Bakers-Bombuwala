@@ -7,6 +7,7 @@ const DesignSchema = new Schema({
   designNumber: Number,
   title: String,
   description: String,
+  price: Number,
   photos: [String],
 });
 

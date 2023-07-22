@@ -10,6 +10,7 @@ export default function AddDesignBoard() {
   const [designNumber, setDesignNumber] = useState(1);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [redirect, setRedirect] = useState(false);
 
@@ -26,6 +27,7 @@ export default function AddDesignBoard() {
       setDescription(data.description);
       setDesignNumber(data.designNumber);
       setTitle(data.title);
+      setPrice(data.price);
       setAddedPhotos(data.photos);
     });
   }, [id]);
@@ -51,6 +53,7 @@ export default function AddDesignBoard() {
       designNumber,
       title,
       description,
+      price,
       addedPhotos,
     };
 
@@ -125,6 +128,16 @@ export default function AddDesignBoard() {
             className="pl-2 pt-2 w-full border rounded-md"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="p-4">
+          <h1 className="mb-2 text-lg font-semibold">Price</h1>
+          <input
+            type="number"
+            placeholder="Price"
+            className="block w-full p-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </div>
         <div className="p-4">
