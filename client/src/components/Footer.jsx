@@ -1,46 +1,45 @@
 import React from 'react';
+import Logo from "../assets/logo.png";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-white py-8">
+      <div className="mb-4 " >
+            
+          </div>
+
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {/* Wasana Bakers */}
           <div className="mb-4">
+          <img src={Logo} width="60px" />
             <h3 className="text-lg font-bold mb-2">Wasana Bakers (Pvt) Ltd.</h3>
             <p>
-              The seed of Horana Wasana Bakery was planted by Mr. Dayananda Bobuwala and his wife Mrs. Anusha Wijayanthi Perera.
-              In the search for a name for this new bakery, he wanted to add the name of the city Horana, which has a strong connection since his childhood.
-              The foundation of Wasana Bakers was laid in 1995 when the current owner and his wife established it in Ratiyala, Govinna in Western Province.
+            Horana Wasana Bakers Bombuwala Branch: Amazing Designs and
+              Delicious Icing Cakes for all Occasions, friendly service and
+              reasonable prices.
             </p>
           </div>
 
-          {/* Group of Companies */}
+          
           <div className="mb-4">
-            <h3 className="text-lg font-bold mb-2">Group of Companies</h3>
+            <h3 className="text-lg font-bold mb-2">Links</h3>
             <ul>
               <li><a href="#">About Us</a></li>
               <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Our Services</a></li>
-              <li><a href="#">Subsidiary Companies</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Online Help</a></li>
-              <li><a href="#">Online Order</a></li>
+              <li><a href="#">Our Products</a></li>
+              <li><a href="#">Custom Design</a></li>
             </ul>
           </div>
 
-          {/* Wasana Reception Hall */}
+        
           <div className="mb-4">
-            <h3 className="text-lg font-bold mb-2">Wasana Reception Hall</h3>
+            <h3 className="text-lg font-bold mb-2">Contact Details</h3>
             <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">Availability</a></li>
-              <li><a href="#">Booking</a></li>
-              <li><a href="#">Menu</a></li>
-              <li><a href="#">Gallery</a></li>
-              <li><a href="#">Facilities</a></li>
-              <li><a href="#">Feedback</a></li>
+              <p>Phone: +94 71 551 4646</p>
+              <p>Email: info@example.com</p>
+              <p>Address: Horana Wasana Bakers, Mankada, Bombuwala, kalutara
+                South</p>
             </ul>
           </div>
         </div>
