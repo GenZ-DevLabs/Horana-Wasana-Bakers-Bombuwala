@@ -25,7 +25,7 @@ function App() {
           <Route path="/slide" element={<AddSlide />} />
           <Route path="/designs" element={<AddDesignBoard />} />
           <Route path="/:id" element={<DesignBoard />} />
-          <Route path="about" element ={<About />} />
+          <Route path="/about" element ={<About />} />
         </Route>
       </Routes>
     </UserContextProvider>
