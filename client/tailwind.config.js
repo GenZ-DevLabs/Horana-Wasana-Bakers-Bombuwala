@@ -9,6 +9,9 @@ export default {
         pink: "#fca5a5",
         pink2: "#f5d0fe",
       },
+      backgroundImage: {
+        "custom-image": "url('/src/assets/bgAbout.jpg')",
+      },
     },
   },
   plugins: [],
