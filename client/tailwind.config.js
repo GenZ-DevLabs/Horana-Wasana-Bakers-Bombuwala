@@ -6,6 +6,9 @@ export default {
       colors: {
         primary: "#2b2b2b",
         secondary: "#e6e6fa",
+      },
+      backgroundImage: {
+        "custom-image": "url('/src/assets/bgAbout.jpg')",
         whatsappButton: "#00DA5F",
       },
       width: {
