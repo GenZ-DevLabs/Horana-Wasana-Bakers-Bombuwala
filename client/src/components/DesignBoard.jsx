@@ -31,7 +31,7 @@ export default function DesignBoard() {
                       "/" +
                       design.board.replace(/\s+/g, "").toLowerCase() +
                       "/" +
-                      design._id
+                      design.title.replace(/\s+/g, "").toLowerCase()
                     }
                   >
                     <img

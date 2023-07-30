@@ -2,62 +2,69 @@ import PhotosUploader from "../components/PhotosUploader";
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
+import EditDeletePanel from "./EditDeletePanel";
 
 export default function AddDesignBoard() {
+  const [board, setBoard] = useState("");
   const { id } = useParams();
+  const [designNumber, setDesignNumber] = useState(1);
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [redirect, setRedirect] = useState(false);
-  const [designNumber, setDesignNumber] = useState(1);
-  const [description, setDescription] = useState("");
+
+  const [designBoards, setDesignBoards] = useState([]);
+  const [designs, setDesigns] = useState([]);
 
   useEffect(() => {
     if (!id) {
       return;
     }
-    axios.get("/designs/" + id).then((response) => {
+    axios.get("/user-designs/" + id).then((response) => {
       const { data } = response;
+      setBoard(data.board);
+      setDescription(data.description);
+      setDesignNumber(data.designNumber);
       setTitle(data.title);
+      setPrice(data.price);
       setAddedPhotos(data.photos);
     });
   }, [id]);
 
-  const [designBoards, setDesignBoards] = useState([]);
-  const [board, setBoard] = useState("");
-  useEffect(() => {
-    axios.get("/user-boards").then(({ data }) => {
-      setDesignBoards(data);
-    });
-  }, []);
-
-  const [designs, setDesigns] = useState([]);
+  // loading photos
   useEffect(() => {
     axios.get("/user-designs").then(({ data }) => {
       setDesigns(data);
     });
   }, []);
 
+  useEffect(() => {
+    axios.get("/user-boards").then(({ data }) => {
+      setDesignBoards(data);
+    });
+  }, []);
+
   async function saveDesign(e) {
     e.preventDefault();
 
-    const placeDetails = {
+    const designData = {
       board,
       designNumber,
       title,
       description,
+      price,
       addedPhotos,
     };
 
     if (id) {
       await axios.put("/designs", {
         id,
-        ...placeDetails,
+        ...designData,
       });
       setRedirect(true);
     } else {
-      await axios.post("/designs", {
-        ...placeDetails,
-      });
+      await axios.post("/designs", designData);
       setRedirect(true);
     }
   }
@@ -119,7 +126,18 @@ export default function AddDesignBoard() {
             placeholder="Description about design"
             rows="5"
             className="pl-2 pt-2 w-full border rounded-md"
+            value={description}
             onChange={(e) => setDescription(e.target.value)}
+          />
+        </div>
+        <div className="p-4">
+          <h1 className="mb-2 text-lg font-semibold">Price</h1>
+          <input
+            type="number"
+            placeholder="Price"
+            className="block w-full p-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </div>
         <div className="p-4">
@@ -137,16 +155,12 @@ export default function AddDesignBoard() {
         {designs.length > 0 &&
           designs.map((design) => (
             <div
-              key={design}
-              className="flex cursor-pointer bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-md"
+              key={design._id}
+              className="flex relative cursor-pointer bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-md"
             >
               <div>
                 {design.photos.length > 0 && (
-                  <img
-                    className="object-cover overflow-hidden rounded-md"
-                    src={"http://localhost:4001/uploads/" + design.photos[0]}
-                    alt="slide"
-                  />
+                  <EditDeletePanel name={"design"}>{design}</EditDeletePanel>
                 )}
               </div>
             </div>
