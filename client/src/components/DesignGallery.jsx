@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import WhatsAppLogo from "../assets/whatsappButton.png";
+import BackButton from "./backButton";
 
 export default function DesignGallery() {
   const url = useLocation();
@@ -55,7 +56,8 @@ export default function DesignGallery() {
   )}`;
 
   return (
-    <div className="flex w-full justify-around items-center">
+    <div className="flex w-full justify-around ">
+      <BackButton />
       {designs.length > 0 &&
         designs.map((design) => (
           <>

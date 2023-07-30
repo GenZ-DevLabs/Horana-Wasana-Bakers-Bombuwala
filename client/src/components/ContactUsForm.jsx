@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import emailjs from 'emailjs-com';
+import { useState } from "react";
+import emailjs from "emailjs-com";
 
 const ContactUsForm = () => {
-    const initialFormData = {
-        fullName: '',
-        email: '',
-        mobileNumber: '',
-        subject: '',
-        message: '',
-      };
+  const initialFormData = {
+    fullName: "",
+    email: "",
+    mobileNumber: "",
+    subject: "",
+    message: "",
+  };
 
-    const [formData, setFormData] = useState(initialFormData);
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-  
+  const [formData, setFormData] = useState(initialFormData);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -30,31 +30,37 @@ const ContactUsForm = () => {
     const userId = "rcyAo91xkCVPVf7Iw";
 
     const templateParams = {
-        from_name: formData.fullName,
-        email_id: formData.email,
-        tp_no: formData.mobileNumber,
-        subject: formData.subject,
-        message: formData.message,
-      };
+      from_name: formData.fullName,
+      email_id: formData.email,
+      tp_no: formData.mobileNumber,
+      subject: formData.subject,
+      message: formData.message,
+    };
 
-      emailjs.send(serviceId, templateId, templateParams, userId)
+    emailjs
+      .send(serviceId, templateId, templateParams, userId)
       .then((response) => {
-        console.log('Email sent successfully!', response);
-        setSuccessMessage('Successfully sent the message!');
-        setErrorMessage('');
+        console.log("Email sent successfully!", response);
+        setSuccessMessage("Successfully sent the message!");
+        setErrorMessage("");
         setFormData(initialFormData);
       })
       .catch((error) => {
-        console.error('Error sending email:', error);
-        setErrorMessage('Error sending the message. Please try again later.');
-        setSuccessMessage('');
+        console.error("Error sending email:", error);
+        setErrorMessage("Error sending the message. Please try again later.");
+        setSuccessMessage("");
       });
   };
 
   return (
     <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
       <div className="mb-4">
-        <label htmlFor="fullName" className="block text-gray-700 font-semibold text-sm">Full Name:</label>
+        <label
+          htmlFor="fullName"
+          className="block text-gray-700 font-semibold text-sm"
+        >
+          Full Name:
+        </label>
         <input
           type="text"
           id="fullName"
@@ -66,7 +72,12 @@ const ContactUsForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="email" className="block text-gray-700 font-semibold text-sm">Email Address:</label>
+        <label
+          htmlFor="email"
+          className="block text-gray-700 font-semibold text-sm"
+        >
+          Email Address:
+        </label>
         <input
           type="email"
           id="email"
@@ -78,7 +89,12 @@ const ContactUsForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="mobileNumber" className="block text-gray-700 font-semibold text-sm">Mobile Number:</label>
+        <label
+          htmlFor="mobileNumber"
+          className="block text-gray-700 font-semibold text-sm"
+        >
+          Mobile Number:
+        </label>
         <input
           type="tel"
           id="mobileNumber"
@@ -90,7 +106,12 @@ const ContactUsForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="subject" className="block text-gray-700 font-semibold text-sm">Subject:</label>
+        <label
+          htmlFor="subject"
+          className="block text-gray-700 font-semibold text-sm"
+        >
+          Subject:
+        </label>
         <input
           type="text"
           id="subject"
@@ -102,7 +123,12 @@ const ContactUsForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label htmlFor="message" className="block text-gray-700 font-semibold text-sm">Message:</label>
+        <label
+          htmlFor="message"
+          className="block text-gray-700 font-semibold text-sm"
+        >
+          Message:
+        </label>
         <textarea
           id="message"
           name="message"

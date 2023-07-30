@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
+import BackButton from "./backButton";
 
 export default function DesignBoard() {
   const location = useLocation();
@@ -15,8 +16,9 @@ export default function DesignBoard() {
   }, []);
 
   return (
-    <div className="flex justify-center">
-      <div className="pt-36 grid gap-4 justify-center items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+    <div className="pt-24 flex justify-center">
+      <BackButton />
+      <div className="pt-12 grid gap-4 justify-center items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {designs.length > 0 &&
           designs.map((design) => (
             <>
