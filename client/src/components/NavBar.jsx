@@ -8,8 +8,8 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="fixed w-full bg-primary text-white px-8 py-2 z-20">
-      <header className="flex justify-between">
+    <div className="fixed w-full bg-primary text-white py-2 z-20">
+      <header className="flex justify-between mx-4 mr-6 md:mx-8">
         <Link to={"/"} className="flex items-center gap-1">
           <img src={Logo} alt="logo" width="60px" className="" />
           <span className="font-semibold lg:text-2xl xl:text-3xl ml-2 hidden lg:block">
@@ -20,18 +20,18 @@ export default function Header() {
           </span>
         </Link>
         <div className="hidden md:flex items-center md:text-md lg:text-lg ">
-          <Link className="mr-4 " to={"/"}>
+          <Link className="mr-4 hover:text-[#08B0F1]" to={"/"}>
             Home
           </Link>
-          <Link to={"/About"} className="mr-4">
+          <Link to={"/About"} className="mr-4 hover:text-[#08B0F1]">
             About
           </Link>
-          <Link className="mr-8" to={"/contactus"}>
+          <Link className="mr-8 hover:text-[#08B0F1]" to={"/contactus"}>
             Contact Us
           </Link>
           <Link
             to={user ? "/account" : "/login"}
-            className="flex items-center gap-2 rounded-full"
+            className="flex items-center gap-2 rounded-full hover:text-[#08B0F1]"
           >
             {/* this should comment out  */}
             {!!user && <div>{user.name}</div>}
