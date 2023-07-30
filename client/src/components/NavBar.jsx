@@ -6,7 +6,7 @@ import Logo from "../assets/logo.png";
 export default function Header() {
   const { user } = useContext(UserContext);
   return (
-    <div className="fixed w-full bg-primary text-white px-8 py-1 z-20">
+    <div className="fixed w-full bg-primary text-white px-8 py-2 z-20">
       <header className="flex justify-between">
         <Link to={"/"} className="flex items-center gap-1">
           <img src={Logo} alt="logo" width="60px" className="" />
@@ -24,7 +24,9 @@ export default function Header() {
           <Link to={"/About"} className="mr-4">
             About
           </Link>
-          <Link className="mr-8" to={"/contactus"}>Contact Us</Link>
+          <Link className="mr-8" to={"/contactus"}>
+            Contact Us
+          </Link>
           <Link
             to={user ? "/account" : "/login"}
             className="flex items-center gap-2 rounded-full"
