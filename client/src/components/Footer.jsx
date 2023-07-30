@@ -1,53 +1,81 @@
-import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <div className="bg-primary text-white pt-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div className="flex w-full justify-center">
-          <img src={Logo} className="w-24 h-24 md:w-32 md:h-32" />
-        </div>
-        <div className="text-center md:text-start mx-10">
-          <h3 className="text-lg font-bold mb-2">Wasana Bakers (Pvt) Ltd.</h3>
-          <p>
-            Horana Wasana Bakers Bombuwala Branch: Amazing Designs and Delicious
-            Icing Cakes for all Occasions, friendly service and reasonable
-            prices.
-          </p>
-        </div>
-
-        <div className="flex flex-col mb-4 text-center md:text-start md:items-center">
-          <h3 className="text-lg font-bold mb-2">Links</h3>
-          <ul>
-            <li>
-              <Link to={"/about"}>About Us</Link>
-            </li>
-            <li>
-              <Link to={"/contactus"}>Contact Us</Link>
-            </li>
-            <li>
-              <Link to={"/"}>Our Products</Link>
-            </li>
-            <li>
-              <Link to={"/"}>Custom Design</Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="mb-4 text-center mx-10 md:text-start">
-          <h3 className="text-lg font-bold mb-2">Contact Details</h3>
-          <ul>
-            <p>Phone: +94 71 551 4646</p>
-            <p>Email: info@example.com</p>
-            <p>
-              Address: Horana Wasana Bakers,
-              <br /> Mankada, Bombuwala, kalutara South
-            </p>
-          </ul>
+    <div className="grid grid-cols-1 w-full bg-gray-50 ">
+      <div>
+        <ul className="flex list-none gap-6 justify-center items-center mt-10">
+          <li>
+            <Link>
+              <FontAwesomeIcon
+                icon={faFacebook}
+                className="w-8 h-8  text-primary hover:text-[#207BF3]"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link>
+              <FontAwesomeIcon
+                icon={faInstagram}
+                className="w-8 h-8 text-primary hover:text-[#087FB7]"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link>
+              <FontAwesomeIcon
+                icon={faTwitter}
+                className="w-8 h-8 text-primary hover:text-[#08B0F1]"
+              />
+            </Link>
+          </li>
+          <li>
+            <Link>
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                className="w-8 h-8 text-primary hover:text-[#087FB7]"
+              />
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className="w-full mb-5">
+        <ul className="flex list-none gap-10 justify-center items-center pt-5">
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/">Designs</Link>
+          </li>
+          <li>
+            <Link to="/">Special Offers</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contactus">Contact Us</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="bg-primary w-full  text-gray-300 py-2 text-sm">
+        <div className="flex justify-between mx-8">
+          <p>&copy;2023 Horana Wasana Bakers Bombuwala. All Rights Reserved.</p>
+          <span>
+            Powered By{" "}
+            <Link to="https://www.genzdevlabs.com" target="_blank">
+              GenZ DevLabs
+            </Link>
+          </span>
         </div>
       </div>
-      <div className="w-full h-12 bg-black"></div>
     </div>
   );
 };
