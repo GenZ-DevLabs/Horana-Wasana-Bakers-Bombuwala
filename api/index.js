@@ -25,6 +25,7 @@ app.use(
   cors({
     credentials: true,
     origin: "http://localhost:5173",
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
@@ -41,7 +42,7 @@ app.post("/login", async (req, res) => {
   const userDoc = await User.findOne({ email });
 
   if (userDoc) {
-    const passOk = bcrypt.compare(password, userDoc.password);
+    const passOk = bcrypt.compareSync(userDoc.password, password);
     console.log(passOk);
     if (passOk) {
       jwt.sign(
