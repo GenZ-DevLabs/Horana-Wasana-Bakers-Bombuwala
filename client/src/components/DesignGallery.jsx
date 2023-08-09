@@ -91,10 +91,7 @@ export default function DesignGallery() {
                             />
                           ) : design.photos[0] ? (
                             <img
-                              src={
-                                "http://localhost:4001/uploads/" +
-                                design.photos[0]
-                              }
+                              src={defaultURL + "uploads/" + design.photos[0]}
                               alt=""
                             />
                           ) : (
