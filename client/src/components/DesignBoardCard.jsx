@@ -11,6 +11,8 @@ export default function DesignBoardCard() {
     });
   }, []);
 
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+
   return (
     <div className="grid w-full justify-center items-center sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {boards.length > 0 &&
@@ -24,7 +26,7 @@ export default function DesignBoardCard() {
               <div>
                 <img
                   className="flex w-64 h-64 items-center justify-around  object-cover overflow-hidden rounded-t-2xl"
-                  src={"http://localhost:4001/uploads/" + board.photos[0]}
+                  src={defaultURL + "uploads/" + board.photos[0]}
                   alt="design"
                 />
                 <div className="flex items-center justify-around w-64 h-16 bg-secondary text-black rounded-b-2xl font-semibold">

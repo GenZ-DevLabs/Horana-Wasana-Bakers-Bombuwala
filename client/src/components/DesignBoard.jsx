@@ -6,6 +6,8 @@ import BackButton from "./backButton";
 export default function DesignBoard() {
   const location = useLocation();
 
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+
   const currentPath = location.pathname;
 
   const [designs, setDesigns] = useState([]);
@@ -38,7 +40,7 @@ export default function DesignBoard() {
                   >
                     <img
                       className="flex w-64 h-64 items-center justify-around  object-cover overflow-hidden rounded-t-2xl"
-                      src={"http://localhost:4001/uploads/" + design.photos[0]}
+                      src={defaultURL + "uploads/" + design.photos[0]}
                       alt="design"
                     />
                     <div className="flex items-center justify-around w-64 h-16 bg-secondary text-black rounded-b-2xl font-semibold">

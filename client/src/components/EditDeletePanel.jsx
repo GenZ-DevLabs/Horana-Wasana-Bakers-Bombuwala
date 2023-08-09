@@ -17,12 +17,14 @@ export default function EditDeletePanel({ name, children }) {
     }
   }
 
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+
   return (
     <div>
       {/* image */}
       <img
         className="object-cover overflow-hidden rounded-2xl"
-        src={"http://localhost:4001/uploads/" + children.photos[0]}
+        src={defaultURL + "uploads/" + children.photos[0]}
         alt="slide"
       />
 

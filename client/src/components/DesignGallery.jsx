@@ -7,6 +7,8 @@ import BackButton from "./backButton";
 export default function DesignGallery() {
   const url = useLocation();
 
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+
   const currentPath = url.pathname;
 
   console.log(currentPath);
@@ -71,10 +73,7 @@ export default function DesignGallery() {
                       <div className="flex w-90 h-90 md:w-128 md:h-128 justify-around rounded-2xl items-center shadow-lg shadow-gray-400 overflow-hidden bg-cover">
                         {design.photos[0] ? (
                           <img
-                            src={
-                              "http://localhost:4001/uploads/" +
-                              design.photos[0]
-                            }
+                            src={defaultURL + "uploads/" + design.photos[0]}
                             alt=""
                           />
                         ) : (
@@ -87,10 +86,7 @@ export default function DesignGallery() {
                         <div className="flex w-62 h-62 md:w-72 md:h-72 justify-around rounded-2xl items-center overflow-hidden shadow-lg shadow-gray-400 bg-cover bg-gray-200 top-0 mr-4 lg:mr-0 lg:mb-4">
                           {design.photos[1] ? (
                             <img
-                              src={
-                                "http://localhost:4001/uploads/" +
-                                design.photos[1]
-                              }
+                              src={defaultURL + "uploads/" + design.photos[1]}
                               alt=""
                             />
                           ) : design.photos[0] ? (
@@ -110,18 +106,12 @@ export default function DesignGallery() {
                         <div className="flex w-62 h-62 md:w-72 md:h-72 justify-around rounded-2xl items-center overflow-hidden shadow-lg shadow-gray-400 bg-gray-200 bg-cover bottom-0">
                           {design.photos[2] ? (
                             <img
-                              src={
-                                "http://localhost:4001/uploads/" +
-                                design.photos[2]
-                              }
+                              src={defaultURL + "uploads/" + design.photos[2]}
                               alt=""
                             />
                           ) : design.photos[0] ? (
                             <img
-                              src={
-                                "http://localhost:4001/uploads/" +
-                                design.photos[0]
-                              }
+                              src={defaultURL + "uploads/" + design.photos[0]}
                               alt=""
                             />
                           ) : (

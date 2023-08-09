@@ -10,11 +10,11 @@ import AddSlide from "./components/AddSlide";
 import AddDesignBoard from "./components/AddDesignBoard";
 import AddDesign from "./components/AddDesign";
 import DesignBoard from "./components/DesignBoard";
-import About from "./components/About"
+import About from "./components/About";
 import DesignGallery from "./components/DesignGallery";
 import ContactUsPage from "./pages/ContactUsPage";
 
-axios.defaults.baseURL = "http://localhost:4001";
+axios.defaults.baseURL = "https://wasana-bakers-bombuwala.onrender.com";
 axios.defaults.withCredentials = true;
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
           <Route path="/designs" element={<AddDesignBoard />} />
           <Route path="/contactus" element={<ContactUsPage />} />
           <Route path="/:id" element={<DesignBoard />} />
-          <Route path="/about" element ={<About />} />
+          <Route path="/about" element={<About />} />
           <Route path="/:id/:designId" element={<DesignGallery />} />
           <Route path="/account/board/:id" element={<ProfilePage />} />
           <Route path="/account/design/:id" element={<ProfilePage />} />

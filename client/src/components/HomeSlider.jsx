@@ -9,6 +9,8 @@ import axios from "axios";
 export default function HomeSlider() {
   const [slides, setSlides] = useState([]);
 
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+
   useEffect(() => {
     axios.get("/user-slides").then(({ data }) => {
       setSlides(data);
@@ -50,7 +52,7 @@ export default function HomeSlider() {
                 {slide.photos.length > 0 && (
                   <img
                     className="object-cover"
-                    src={"http://localhost:4001/uploads/" + slide.photos[0]}
+                    src={defaultURL + "uploads/" + slide.photos[0]}
                     alt="slide"
                   />
                 )}

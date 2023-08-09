@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 export default function PhotosUploader({ addedPhotos, onChange }) {
   const [photoLink, setPhotoLink] = useState("");
 
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+
   async function addPhotoByLink(e) {
     e.preventDefault();
 
@@ -72,7 +74,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
             <div key={link} className="h-28 flex relative">
               <img
                 className="rounded-md w-full object-cover"
-                src={"http://localhost:4001/uploads/" + link}
+                src={defaultURL + "uploads/" + link}
                 alt="place"
               />
               <button
