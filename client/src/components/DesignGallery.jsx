@@ -7,7 +7,7 @@ import BackButton from "./backButton";
 export default function DesignGallery() {
   const url = useLocation();
 
-  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+  const defaultURL = "http://localhost:4000/";
 
   const currentPath = url.pathname;
 
