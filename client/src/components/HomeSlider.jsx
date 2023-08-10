@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "./HomeSlider.css";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,7 +10,7 @@ import axios from "axios";
 export default function HomeSlider() {
   const [slides, setSlides] = useState([]);
 
-  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+  const defaultURL = "http://localhost:4000/";
 
   useEffect(() => {
     axios.get("/user-slides").then(({ data }) => {
@@ -41,17 +42,14 @@ export default function HomeSlider() {
 
   return (
     <div className="relative z-10">
-      <Slider {...settings}>
+      <Slider {...settings} className="slider-container">
         {slides.length > 0 &&
           slides.map((slide) => (
-            <Link
-              key={slide}
-              className="flex cursor-pointer bg-gray-100 rounded-2xl mt-3"
-            >
+            <Link key={slide} className="flex cursor-pointer bg-gray-100 mt-3">
               <div className="flex bg-gray-300">
                 {slide.photos.length > 0 && (
                   <img
-                    className="object-cover"
+                    className="flex w-full h-96 md:h-auto justify-around  object-cover overflow-hidden"
                     src={defaultURL + "uploads/" + slide.photos[0]}
                     alt="slide"
                   />

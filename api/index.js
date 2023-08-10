@@ -24,7 +24,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(
   cors({
     credentials: true,
-    origin: "https://bombuwala-wasana.onrender.com",
+    origin: "http://localhost:5173",
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
@@ -274,4 +274,4 @@ app.delete("/designs/:id", async (req, res) => {
   }
 });
 
-app.listen(4001);
+app.listen(4000);
