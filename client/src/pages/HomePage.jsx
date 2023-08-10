@@ -6,7 +6,7 @@ export default function HomePage() {
     <div className="pt-16">
       <HomeSlider />
       <div className="pt-16 flex flex-col items-center">
-        <h1 className="mt-10 mb-5 text-2xl font-semibold text-primary">
+        <h1 className="mt-0 sm:mt-10 mb-5 text-2xl font-semibold text-primary">
           Icing Cake Designs
         </h1>
         <div className="flex">
