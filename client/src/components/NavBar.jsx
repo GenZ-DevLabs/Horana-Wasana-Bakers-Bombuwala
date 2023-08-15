@@ -11,12 +11,12 @@ export default function Header() {
     <div className="fixed w-full bg-primary text-white py-2 z-20">
       <header className="flex justify-between mx-4 mr-6 md:mx-8">
         <Link to={"/"} className="flex items-center gap-1">
-          <img src={Logo} alt="logo" width="60px" className="" />
+          <img src={Logo} alt="logo" className="w-[40px] sm:w-[60px]" />
           <span className="font-semibold lg:text-2xl xl:text-3xl ml-2 hidden lg:block">
             Horana Wasana Bakers Bombuwala
           </span>
-          <span className="font-bold text-2xl ml-2 lg:hidden">
-            HWB Bombuwala
+          <span className="font-bold text-sm ml-2 lg:hidden">
+            Wasana Bakers Bombuwala
           </span>
         </Link>
         <div className="hidden md:flex items-center md:text-md lg:text-lg ">
