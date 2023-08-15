@@ -43,7 +43,7 @@ export default function ProfilePage() {
             Logged in as {user.name} ({user.email})
             <button
               onClick={handleLogout}
-              className="text-md font-semibold align-bottom bg-gray-800 text-white rounded-2xl py-1 w-20 mt-2"
+              className="text-md font-semibold align-bottom bg-gray-800 text-white rounded-2xl py-1 w-28 mt-2 mb-20"
             >
               Log out
             </button>

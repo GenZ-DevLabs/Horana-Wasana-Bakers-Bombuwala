@@ -31,7 +31,7 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="mt-4 grow flex items-center justify-around text-primary">
+    <div className="mt-28 sm:mt-4 grow flex items-center justify-around text-primary">
       <div className="mb-40">
         <form
           className="px-10 py-8 shadow-lg shadow-gray-400 rounded-2xl"
