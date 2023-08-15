@@ -88,7 +88,9 @@ export default function Header() {
                 <Link to="/contactus">Contact Us</Link>
               </li>
               <li onClick={() => setShowMenu(!showMenu)}>
-                <Link to={user ? "/account" : "/login"}>Admin</Link>
+                <Link to={user ? "/account" : "/login"}>
+                  {!!user && <div>Admin</div>}
+                </Link>
               </li>
             </ul>
           </div>
