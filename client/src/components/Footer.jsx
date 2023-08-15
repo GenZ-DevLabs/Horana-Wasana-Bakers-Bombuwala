@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -7,10 +6,8 @@ import {
   faTwitter,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
-import { UserContext } from "./UserContext";
 
 const Footer = () => {
-  const { user } = useContext(UserContext);
   return (
     <div className="grid grid-cols-1 w-full bg-gray-100 ">
       <div>
@@ -65,13 +62,8 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to={user ? "/account" : "/login"}
-              className="flex items-center gap-2 rounded-full hover:text-[#08B0F1]"
-            >
-              {/* this should comment out  */}
-              Admin
-              {/* {!!user && <div>{user.name}</div>} */}
+            <Link to="/" className="hover:text-[#08B0F1]">
+              Special Offers
             </Link>
           </li>
           <li>
