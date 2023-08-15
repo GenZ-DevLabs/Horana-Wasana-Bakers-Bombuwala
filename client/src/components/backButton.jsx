@@ -1,8 +1,8 @@
 export default function BackButton() {
   return (
-    <div className="fixed top-24 left-20">
+    <div className="fixed top-24 left-6 sm:left-20">
       <a
-        className="flex py-2 px-4 border-2 text-white bg-primary rounded-2xl items-center"
+        className="flex py-1 px-3 sm:py-2 sm:px-4 border-2 text-white bg-primary rounded-2xl items-center"
         href="../"
       >
         <svg
@@ -11,7 +11,7 @@ export default function BackButton() {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="w-5 h-5 mr-1"
+          className="w-4 h-4 sm:w-5 sm:h-5 mr-1"
         >
           <path
             strokeLinecap="round"

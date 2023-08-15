@@ -158,7 +158,7 @@ export default function DesignGallery() {
                           to={whatsappUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="flex items-center justify-center w-full bg-whatsappButton text-white text-lg p-3 rounded-xl mt-10 shadow-md shadow-gray-400 font-semibold"
+                          className="flex items-center justify-center w-full bg-whatsappButton bg-[#00D95F] text-white text-lg p-3 rounded-xl mt-10 shadow-md shadow-gray-400 font-semibold"
                         >
                           <img
                             src={WhatsAppLogo}

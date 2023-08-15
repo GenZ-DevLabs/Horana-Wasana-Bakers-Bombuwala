@@ -35,10 +35,6 @@ export default function Header() {
           >
             {/* this should comment out  */}
             {!!user && <div>{user.name}</div>}
-            <span className="border border-white px-3 py-2 rounded-2xl">
-              Admin
-            </span>
-            <div className="bg-gray-500 text-white rounded-full overflow-hidden"></div>
           </Link>
         </div>
         <div className="flex md:hidden flex-1 justify-end items-center">
