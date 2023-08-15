@@ -6,8 +6,12 @@ import {
   faTwitter,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
+import { UserContext } from "./UserContext";
+import { useContext } from "react";
 
 const Footer = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <div className="grid grid-cols-1 w-full bg-gray-100 ">
       <div>
@@ -62,9 +66,7 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link to="/" className="hover:text-[#08B0F1]">
-              Special Offers
-            </Link>
+            <Link to={user ? "/account" : "/login"}>Admin</Link>
           </li>
           <li>
             <Link to="/about" className="hover:text-[#08B0F1]">
