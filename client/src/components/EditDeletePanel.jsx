@@ -17,7 +17,8 @@ export default function EditDeletePanel({ name, children }) {
     }
   }
 
-  const defaultURL = "http://localhost:4000/";
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+  // const defaultURL = "http://localhost:4000/";
 
   return (
     <div>

@@ -14,7 +14,9 @@ import About from "./components/About";
 import DesignGallery from "./components/DesignGallery";
 import ContactUsPage from "./pages/ContactUsPage";
 
-axios.defaults.baseURL = "http://localhost:4000/";
+axios.defaults.baseURL = "https://wasana-bakers-bombuwala.onrender.com/";
+//axios.defaults.baseURL = "http://localhost:4000/";
+
 axios.defaults.withCredentials = true;
 
 function App() {
