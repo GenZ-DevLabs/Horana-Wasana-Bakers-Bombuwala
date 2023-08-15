@@ -8,14 +8,14 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="fixed w-full bg-primary text-white py-2 z-20">
-      <header className="flex justify-between mx-4 mr-6 md:mx-8">
+    <div className="fixed w-full bg-primary text-white py-2 z-20 h-[76px]">
+      <header className="flex justify-between items-center mx-4 mr-6 md:mx-8">
         <Link to={"/"} className="flex items-center gap-1">
-          <img src={Logo} alt="logo" className="w-[40px] sm:w-[60px]" />
+          <img src={Logo} alt="logo" className="w-[50px] sm:w-[60px]" />
           <span className="font-semibold lg:text-2xl xl:text-3xl ml-2 hidden lg:block">
             Horana Wasana Bakers Bombuwala
           </span>
-          <span className="font-bold text-sm ml-2 lg:hidden">
+          <span className="font-bold text-md ml-2 lg:hidden">
             Wasana Bakers Bombuwala
           </span>
         </Link>
