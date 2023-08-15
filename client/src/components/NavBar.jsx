@@ -29,13 +29,13 @@ export default function Header() {
           <Link className="mr-8 hover:text-[#08B0F1]" to={"/contactus"}>
             Contact Us
           </Link>
-          {/* <Link
+          <Link
             to={user ? "/account" : "/login"}
             className="flex items-center gap-2 rounded-full hover:text-[#08B0F1]"
           >
             {/* this should comment out  */}
             {!!user && <div>{user.name}</div>}
-          </Link> */}
+          </Link>
         </div>
         <div className="flex md:hidden flex-1 justify-end items-center">
           {showMenu ? (
@@ -87,11 +87,9 @@ export default function Header() {
               <li onClick={() => setShowMenu(!showMenu)}>
                 <Link to="/contactus">Contact Us</Link>
               </li>
-              {/* <li onClick={() => setShowMenu(!showMenu)}>
-                <Link to={user ? "/account" : "/login"}>
-                  {!!user && <div>Admin</div>}
-                </Link>
-              </li> */}
+              <li onClick={() => setShowMenu(!showMenu)}>
+                <Link to={user ? "/account" : "/login"}>Admin</Link>
+              </li>
             </ul>
           </div>
         </div>
