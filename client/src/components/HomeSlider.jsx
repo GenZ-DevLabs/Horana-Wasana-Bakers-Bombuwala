@@ -10,7 +10,8 @@ import axios from "axios";
 export default function HomeSlider() {
   const [slides, setSlides] = useState([]);
 
-  const defaultURL = "http://localhost:4000/";
+  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+  // const defaultURL = "http://localhost:4000/";
 
   useEffect(() => {
     axios.get("/user-slides").then(({ data }) => {
