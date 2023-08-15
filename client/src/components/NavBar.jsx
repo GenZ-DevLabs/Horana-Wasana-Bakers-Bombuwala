@@ -87,9 +87,12 @@ export default function Header() {
               <li onClick={() => setShowMenu(!showMenu)}>
                 <Link to="/contactus">Contact Us</Link>
               </li>
-              <li onClick={() => setShowMenu(!showMenu)}>
-                <Link to={user ? "/account" : "/login"}>Admin</Link>
-              </li>
+              <Link
+                to={user ? "/account" : "/login"}
+                className="flex items-center gap-2 rounded-full hover:text-[#08B0F1]"
+              >
+                {!!user && <div>{user.name}</div>}
+              </Link>
             </ul>
           </div>
         </div>
