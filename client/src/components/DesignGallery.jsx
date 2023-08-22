@@ -134,7 +134,7 @@ export default function DesignGallery() {
                           <p className="">{design.description}</p>
                         </div>
                         <div className="p-3 text-lg mt-4">
-                          <h1 className="text-2xl font-bold">Rs:{price}.00</h1>
+                          <h1 className="text-2xl font-bold">Rs:{design.price}.00</h1>
                         </div>
                       </div>
                       <div className="flex-col mt-4 p-3 pb-5 w-full bg-gray-100 shadow-md shadow-gray-400 rounded-2xl">

@@ -54,7 +54,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
 
   return (
     <>
-      <div className="flex gap-2">
+      <div className="flex-cols sm:flex gap-2">
         <input
           type="text"
           value={photoLink}
@@ -64,7 +64,7 @@ export default function PhotosUploader({ addedPhotos, onChange }) {
         />
         <button
           onClick={addPhotoByLink}
-          className="bg-primary text-white grow px-4 rounded-md font-semibold"
+          className="bg-primary text-white grow px-4 rounded-md font-semibold mt-2 py-2 sm:mt-0"
         >
           Add&nbsp;Photo
         </button>

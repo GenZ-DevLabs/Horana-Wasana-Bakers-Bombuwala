@@ -54,7 +54,7 @@ export default function AddSlide() {
       <h1 className="text-center text-2xl font-semibold mb-5">Add Slide</h1>
       <form
         onSubmit={saveSlide}
-        className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-md"
+        className="border shadow-lg shadow-gray-400 py-10 px-5 lg:px-10 rounded-2xl w-4/5 lg:w-[700px] mx-10"
       >
         <PhotosUploader addedPhotos={addedPhotos} onChange={setAddedPhotos} />
         <div>
@@ -63,23 +63,20 @@ export default function AddSlide() {
           </button>
         </div>
       </form>
-      <div className="flex ">
-        <div className="flex">
+      <div className="flex-cols lg:flex">
+      
           {slides.length > 0 &&
             slides.map((slide) => (
               <div
                 to={"/account/slide/" + slide._id}
                 key={slide._id}
-                className="flex cursor-pointer relative bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-md w-128 gap-2 overflow-hidden"
+                className="flex relative bg-gray-100 my-8 shadow-md shadow-gray-400 rounded-md w-auto gap-2 overflow-hidden"
               >
-                <div>
                   {slide.photos.length > 0 && (
                     <EditDeletePanel name={"slide"}>{slide}</EditDeletePanel>
                   )}
-                </div>
               </div>
             ))}
-        </div>
       </div>
     </div>
   );

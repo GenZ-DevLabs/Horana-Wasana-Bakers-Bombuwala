@@ -74,11 +74,11 @@ export default function AddDesignBoard() {
   }
 
   return (
-    <div className="mt-10">
+    <div className="flex-cols mt-10">
       <h1 className="text-2xl text-center font-semibold mb-8">Add Design</h1>
       <form
         onSubmit={saveDesign}
-        className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-md"
+        className="border shadow-lg shadow-gray-400 py-10 px-5 lg: px-10 rounded-md w-4/5 lg:w-[700px] mx-10"
       >
         <div className="p-4">
           <h1 className="mb-2 text-lg font-semibold">Select Design Board:</h1>
@@ -87,8 +87,7 @@ export default function AddDesignBoard() {
             name="dropdown"
             value={board}
             className="block w-full p-2 bg-white border border-gray-300 rounded shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
-            onChange={(e) => setBoard(e.target.value)}
-          >
+            onChange={(e) => setBoard(e.target.value)}       >
             <option value="" disabled>
               Choose an option
             </option>
@@ -151,12 +150,12 @@ export default function AddDesignBoard() {
           </div>
         </div>
       </form>
-      <div className="grid justify-center items-center grid-cols-1 md:grid-cols-2  xl:grid-cols-3 2xl:grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         {designs.length > 0 &&
           designs.map((design) => (
             <div
               key={design._id}
-              className="flex relative cursor-pointer bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-md"
+              className="flex relative bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-md mx-2"
             >
               <div>
                 {design.photos.length > 0 && (
