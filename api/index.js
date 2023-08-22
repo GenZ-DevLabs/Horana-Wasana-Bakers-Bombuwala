@@ -12,12 +12,14 @@ const imageDownloader = require("image-downloader");
 const multer = require("multer");
 const fs = require("fs");
 const { type } = require("os");
+const path = require('path');
 
 require("dotenv").config();
 const app = express();
 
 const jwtSecret = "adawe123e29acacsc3w1e341vndni4";
 
+app.use(express.static('static'));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
@@ -274,5 +276,9 @@ app.delete("/designs/:id", async (req, res) => {
       .json({ success: false, message: "Error deleting Design.", error });
   }
 });
+
+app.get('*', (req, res) => {
+	res.sendFile(path.join(__dirname, 'static/index.html'))
+})
 
 app.listen(4000);

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function PhotosUploader({ addedPhotos, onChange }) {
   const [photoLink, setPhotoLink] = useState("");
 
-  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+  const defaultURL = "https://bombuwalawasanabakers.com/";
   // const defaultURL = "http://localhost:4000/";
 
   async function addPhotoByLink(e) {

@@ -11,7 +11,7 @@ export default function DesignBoardCard() {
     });
   }, []);
 
-  const defaultURL = "https://wasana-bakers-bombuwala.onrender.com/";
+  const defaultURL = "https://bombuwalawasanabakers.com/";
   // const defaultURL = "http://localhost:4000/";
 
   return (
