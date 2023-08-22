@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 
 export default function ProfileSideBar({ setSubpage }) {
   return (
-    <div className="fixed pt-20 text-center bg-gray-200 w-1/5 h-screen text-primary">
+    <div className="flex-cols pt-20 text-center w-full h-full min-h-screen bg-gray-200 text-primary">
       <Link className="flex justify-around mt-8 mb-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="w-36 h-36 "
+          className="w-24 h-24 lg:w-36 lg:h-36 "
         >
           <path
             fillRule="evenodd"
@@ -19,43 +19,43 @@ export default function ProfileSideBar({ setSubpage }) {
         </svg>
       </Link>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("DesignBoards")}
       >
         Design Board
       </h1>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("AddDesign")}
       >
         Add Design
       </h1>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("BirthdayItems")}
       >
         Birthday Items
       </h1>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("SpecialAds")}
       >
         Special Ads
       </h1>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("Delivery")}
       >
         Delivery
       </h1>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("account")}
       >
         Account
       </h1>
       <h1
-        className="text-2xl font-semibold mb-3 cursor-pointer"
+        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("changePassword")}
       >
         Change Password

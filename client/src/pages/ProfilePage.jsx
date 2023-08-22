@@ -33,11 +33,11 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="grid grid-cols-[1fr_2fr]">
-      <div>
+    <div className="grid grid-cols-[1fr_3fr]">
+      <div className="flex justify-around">
         <ProfileSideBar setSubpage={setSubpage} />
       </div>
-      <div className="pt-20 pr-20 flex justify-around">
+      <div className="pt-20">
         {subpage === "account" && (
           <div className="flex flex-col justify-center items-center mt-20">
             Logged in as {user.name} ({user.email})

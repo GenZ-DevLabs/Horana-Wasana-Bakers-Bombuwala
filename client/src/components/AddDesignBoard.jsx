@@ -53,13 +53,13 @@ export default function AddDesignBoard() {
   }
 
   return (
-    <div className="mt-10">
+    <div className="flex-cols mt-10">
       <h1 className="text-2xl text-center font-semibold mb-8">
         Add Design Board
       </h1>
       <form
         onSubmit={saveDesignBoard}
-        className="border shadow-lg shadow-gray-400 py-10 px-10 rounded-2xl"
+        className="border shadow-lg shadow-gray-400 py-10 px-5 lg:px-10 rounded-2xl w-4/5 lg:w-[700px] mx-10 "
       >
         <h1 className="mb-2 text-lg font-semibold">Title</h1>
         <input
@@ -79,12 +79,12 @@ export default function AddDesignBoard() {
           </button>
         </div>
       </form>
-      <div className="grid w-full justify-center items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-5">
+      <div className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:gap-5">
         {boards.length > 0 &&
           boards.map((board) => (
             <div
               key={board._id}
-              className="flex bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-2xl relative"
+              className="flex bg-gray-100 my-8 shadow-lg shadow-gray-400 rounded-2xl relative mx-2 md:mx-5"
             >
               <div>
                 {board.photos.length > 0 && (
