@@ -66,9 +66,6 @@ const Footer = () => {
             </Link>
           </li>
           <li>
-            <Link to={user ? "/account" : "/login"}>Admin</Link>
-          </li>
-          <li>
             <Link to="/about" className="hover:text-[#08B0F1]">
               About
             </Link>
