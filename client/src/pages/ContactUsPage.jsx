@@ -14,8 +14,7 @@ const ContactUsPage = () => {
       }}
     >
       <div
-        className="bg-w border-2 border-gray-300 p-5 rounded-2xl shadow-2xl max-w-xl w-full "
-        style={{ marginLeft: "30.5%" }}
+        className="bg-w border-2 border-gray-300 p-5 rounded-2xl shadow-2xl max-w-xl w-full ml-10 mr-10 md:ml-[200px] lg:ml-[300px] xl:ml-[400px]"
       >
         <h2 className="text-3xl font-semibold mb-4 text-center">Contact Us</h2>
         <ContactUsForm />

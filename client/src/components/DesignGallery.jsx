@@ -149,6 +149,9 @@ export default function DesignGallery() {
                             <option value="default">Choose an option</option>
                             <option value="kalutara">Kalutara</option>
                             <option value="panadura">Panadura</option>
+			    <option value="horana">Horana</option>
+			    <option value="mathugama">Mathugama</option>
+			    <option value="beruwala">Beruwala</option>
                             <option value="aluthgama">Aluthgama</option>
                           </select>
                         </div>

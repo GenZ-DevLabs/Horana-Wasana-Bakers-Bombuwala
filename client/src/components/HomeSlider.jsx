@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./HomeSlider.css";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -43,14 +42,14 @@ export default function HomeSlider() {
 
   return (
     <div className="relative z-10">
-      <Slider {...settings} className="slider-container">
+      <Slider {...settings}>
         {slides.length > 0 &&
           slides.map((slide) => (
-            <Link key={slide} className="flex cursor-pointer bg-gray-100 mt-3">
+            <Link key={slide} className="flex bg-gray-100 mt-3">
               <div className="flex bg-gray-300">
                 {slide.photos.length > 0 && (
                   <img
-                    className="flex w-full h-96 md:h-auto justify-around  object-cover overflow-hidden"
+                    className="flex w-full md:h-auto justify-around  object-cover overflow-hidden"
                     src={defaultURL + "uploads/" + slide.photos[0]}
                     alt="slide"
                   />
