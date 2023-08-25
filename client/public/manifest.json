@@ -1,0 +1,18 @@
+{
+    "short_name": "HWB",
+    "name": "Horana Wasana Bakers Bombuwala",
+    "icons": [
+      {
+        "src": "/images/android-chrome-192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/android-chrome-512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "display": "standalone",
+    "theme_color": "#2b2b2b"
+  }
