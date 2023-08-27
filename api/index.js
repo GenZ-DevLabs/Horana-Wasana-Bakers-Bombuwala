@@ -31,6 +31,7 @@ app.use(
 );
 
 mongoose.connect(process.env.MONGO_URL);
+console.log(process.env.MONGO_URL);
 
 app.get("/test", (req, res) => {
   res.json("Hello World");

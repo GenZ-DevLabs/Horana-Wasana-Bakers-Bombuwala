@@ -14,7 +14,11 @@ export default function DesignBoard() {
   const [designs, setDesigns] = useState([]);
   useEffect(() => {
     axios.get("/user-designs").then(({ data }) => {
-      setDesigns(data);
+      const sortedDesigns = data.sort(
+        (a, b) => a.designNumber - b.designNumber
+      );
+      setDesigns(sortedDesigns);
+      console.log(sortedDesigns);
     });
   }, []);
 
