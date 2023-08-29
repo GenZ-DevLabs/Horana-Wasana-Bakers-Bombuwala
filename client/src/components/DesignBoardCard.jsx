@@ -26,11 +26,11 @@ export default function DesignBoardCard() {
             {board.photos.length > 0 && (
               <div>
                 <img
-                  className="flex w-43 h-43 sm:w-64 sm:h-64 items-center justify-around  object-cover overflow-hidden rounded-t-2xl"
+                  className="flex w-[170px] h-[170px] sm:w-64 sm:h-64 items-center justify-around object-cover overflow-hidden rounded-t-2xl"
                   src={defaultURL + "uploads/" + board.photos[0]}
                   alt="design"
                 />
-                <div className="flex items-center justify-around  sm:w-64 h-16 bg-secondary text-black rounded-b-2xl font-semibold">
+                <div className="flex items-center justify-around w-[170px] h-12 sm:w-64 sm:h-16 bg-secondary text-black rounded-b-2xl font-semibold">
                   <h1 className="text-sm sm:text-md text-center">
                     {board.title}
                   </h1>
