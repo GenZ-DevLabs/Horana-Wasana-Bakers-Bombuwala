@@ -63,6 +63,33 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.get("/profile", (req, res) => {
+  const { token } = req.cookies;
+
+  if (token) {
+    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
+      if (err) {
+        // Clear the token and send a response indicating logout
+        res.clearCookie("token");
+        return res
+          .status(401)
+          .json({ message: "Logged out due to token expiration." });
+      }
+
+      const user = await User.findById(userData.id);
+      if (!user) {
+        // Clear the token and send a response indicating logout
+        res.clearCookie("token");
+        return res.status(401).json({ message: "User not found." });
+      }
+
+      res.json({ name: user.name, email: user.email, _id: user._id });
+    });
+  } else {
+    res.json("null");
+  }
+});
+
 app.post("/logout", (req, res) => {
   res.cookie("token", "").json(true);
 });

@@ -49,7 +49,7 @@ export default function DesignBoard() {
                       alt="design"
                     />
                     <div className="flex items-center justify-around w-[170px] h-12 sm:w-64 sm:h-16 bg-secondary text-black rounded-b-2xl font-semibold">
-                      <h1 className="text-md sm:text-lg font-semibold">
+                      <h1 className="text-sm sm:text-md text-center">
                         {design.title}
                       </h1>
                     </div>

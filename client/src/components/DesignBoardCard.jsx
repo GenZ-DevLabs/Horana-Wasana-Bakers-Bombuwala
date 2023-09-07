@@ -24,13 +24,13 @@ export default function DesignBoardCard() {
             className="flex cursor-pointer mx-3 sm:mx-5 my-5 rounded-2xl mt-3 w-[170px] sm:w-64 shadow-lg shadow-gray-500"
           >
             {board.photos.length > 0 && (
-              <div>
+              <div className="overflow-hidden h-[236px] sm:h-auto">
                 <img
-                  className="flex w-43 h-43 sm:w-64 sm:h-64 items-center justify-around  object-cover overflow-hidden rounded-t-2xl"
+                  className="flex w-[170px] h-[170px] sm:w-64 sm:h-64 items-center justify-around object-cover overflow-hidden rounded-t-2xl"
                   src={defaultURL + "uploads/" + board.photos[0]}
                   alt="design"
                 />
-                <div className="flex items-center justify-around  sm:w-64 h-16 bg-secondary text-black rounded-b-2xl font-semibold">
+                <div className="flex items-center justify-around w-[170px] h-12 sm:w-64 sm:h-16 bg-secondary text-black rounded-b-2xl font-semibold">
                   <h1 className="text-sm sm:text-md text-center">
                     {board.title}
                   </h1>

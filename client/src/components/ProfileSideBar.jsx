@@ -44,12 +44,6 @@ export default function ProfileSideBar({ setSubpage }) {
       </h1>
       <h1
         className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
-        onClick={() => setSubpage("Delivery")}
-      >
-        Delivery
-      </h1>
-      <h1
-        className="texl-md md:text-xl lg:text-2xl font-semibold mb-3 cursor-pointer"
         onClick={() => setSubpage("account")}
       >
         Account
