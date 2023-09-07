@@ -58,6 +58,26 @@ export default function DesignGallery() {
     defaultMessage
   )}`;
 
+ const locations = [
+    "Kalutara",
+    "Panadura",
+    "Horana",
+    "Mathugama",
+    "Beruwala",
+    "Aluthgama",
+    "Ragama",
+    "Kadawatha",
+    "Kiribathgoda",
+    "Kaduwela",
+    "Grandpass",
+    "Borella",
+    "Rathmalana",
+    "Moranthuduwa",
+    "Bandaragama",
+    "Bulathsinhala",
+    "Govinna",
+  ];
+
   return (
     <div className="flex w-full justify-around ">
       <BackButton />
@@ -147,12 +167,14 @@ export default function DesignGallery() {
                             onChange={handleDropdownChange}
                           >
                             <option value="default">Choose an option</option>
-                            <option value="kalutara">Kalutara</option>
-                            <option value="panadura">Panadura</option>
-			    <option value="horana">Horana</option>
-			    <option value="mathugama">Mathugama</option>
-			    <option value="beruwala">Beruwala</option>
-                            <option value="aluthgama">Aluthgama</option>
+                            {locations
+                              .slice()
+                              .sort()
+                              .map((location, index) => (
+                                <option key={index} value={location}>
+                                  {location}
+                                </option>
+                              ))}
                           </select>
                         </div>
                       </div>
